@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your GPA</title>
+</head>
+<body>
+    <h1>Your GPA Results</h1>
+    <p>Classes and credits:</p>
+    <table border = 1>
+    {%for i in tasks%}
+    <tr>
+        <th> <pre>{{i['Name']}} </pre></th>
+        <td> <pre>{{"{0:g}".format(i['Credits'])}} credits</pre> </td>
+     </tr>
+    {%endfor%}
+    </table>
+    <p>GPA: {{gpa}}</p>
+</body>
+</html>
