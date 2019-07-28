@@ -5,7 +5,7 @@ from flask import make_response
 app = Flask(__name__)
 
 @app.route('/gpacalc')
-def home():
+def gpahome():
     return render_template('gpaform.html')
 
 @app.route('/getgpa', methods = ['POST', 'GET'])
@@ -22,7 +22,7 @@ def index():
             a['Grade'] = float(grades[i])
             a['Credits'] = float(creds[i])
             tasks.append(a)
-        return render_template('gpacalc.html', tasks = tasks, gpa = show(tasks))
+        return render_template('getgpa.html', tasks = tasks, gpa = show(tasks))
 
 def show(tasks):
     grades = []
