@@ -17,7 +17,7 @@ body {
   }
 
   .site-header .navbar-nav .nav-link:hover {
-    color: #ffffff;
+    color: #ffafaf;
   }
 
   .site-header .navbar-nav .nav-link.active {
@@ -25,7 +25,7 @@ body {
   }
 
   .content-section {
-    background: #ffffff;
+    background: #fffaff;
     padding: 10px 20px;
     border: 1px solid #dddddd;
     border-radius: 3px;
@@ -68,13 +68,24 @@ body {
     vertical-align: middle;
   }
 
-  .account-img {
-    height: 125px;
-    width: 125px;
-    margin-right: 20px;
-    margin-bottom: 16px;
-  }
-
   .account-heading {
     font-size: 2.5rem;
+  }
+
+  .fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  /* Add a hover effect if you want */
+  .fa:hover {
+    opacity: 0.7;
+  }
+
+  .fa-youtube {
+    background: #bb0000;
+    color: white;
   }
