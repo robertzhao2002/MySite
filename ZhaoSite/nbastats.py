@@ -22,10 +22,22 @@ def average(l):
 
 year = int(input('Enter year (format: YYYY): '))
 seasonmonths = []
-url = "https://www.basketball-reference.com/leagues/NBA_{}_games.html".format(year)
+'''url = "https://www.basketball-reference.com/leagues/NBA_{}_games.html".format(year)
 html = urlopen(url)
+soup = BeautifulSoup(html, features='html.parser')'''
+standings_url = "https://www.basketball-reference.com/leagues/NBA_{}_standings.html".format(year)
+html = urlopen(standings_url)
 soup = BeautifulSoup(html, features='html.parser')
-months = soup.findAll('div', {'class': 'filter'})
+teams_that_season = soup.findAll('div', {'id': 'all_expanded_standings'})
+'''team = 0
+f = 0
+for i in teams_that_season:
+    team = i.find_all('div', {'class': 'table_outer_container'})
+
+print(team)'''
+print(teams_that_season[1])
+
+'''months = soup.findAll('div', {'class': 'filter'})
 for month in months:
     monthtag = month.find_all('a')
     for i in monthtag:
@@ -110,10 +122,12 @@ in_range_prop = in_range_W/in_range
 close_prop = close_W/close_G
 range_chance = in_range_prop*(1+(1-in_range_prop)/2)
 close_chance = close_prop*(1+(1-close_prop)/2)
-win_range = (round(decisive_W + (0.5*in_range_prop*in_range) + (0.5*close_prop*close_G)), round(decisive_W + (range_chance*in_range) + (close_chance*close_G)))
-#The formula for least wins is the actual proportion of games (in the vitory margin interval) * 0.5 + decisive wins + 95% of close games
+print(str(wins)+'-'+str(len(teamdifferential)-wins))
+win_range = (round(decisive_W + (0.95*in_range_prop*in_range) + (0.5*close_prop*close_G)), round(decisive_W + (range_chance*in_range) + (close_chance*close_G)))
+#The formula for least wins is the actual proportion of games (in the vitory margin interval)
+# * (0.95) + decisive wins + 50% of close games
 #The formula for most wins is the decisive wins + actual proportion of both plus 1/2 of remaining proportion of margin and close games
-print(win_range)
+print(win_range)'''
 
 
 
